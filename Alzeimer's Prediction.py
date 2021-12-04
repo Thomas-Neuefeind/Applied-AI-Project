@@ -13,7 +13,7 @@ from sklearn.svm import SVC
 
 from SVM_Prediction import SVM_Predict
 from Ward_Hierarchical_Clustering import WHC_Prediction
-
+from NN_Prediction import NN_Predict
 
 cross_sectional = pd.read_csv("oasis_cross-sectional.csv")
 longitudinal = pd.read_csv("oasis_longitudinal.csv")
@@ -24,7 +24,7 @@ cross_sectional.dropna(axis = 0, how = 'any', inplace=True)
 longitudinal.dropna(axis = 0, how = 'any', inplace=True)
 
 cross_sectional= cross_sectional.drop(columns=['ID', 'Hand', 'Delay'])
-longitudinal = longitudinal.drop(columns=['Subject ID', 'MRI ID', 'MR Delay', 'Visit', 'Hand'])
+longitudinal = longitudinal.drop(columns=['Subject ID', 'MRI ID', 'MR Delay', 'Visit', 'Hand' , 'Group'])
 longitudinal = longitudinal.rename(columns={'EDUC':'Educ'})
 
 data = pd.concat([cross_sectional, longitudinal])
@@ -32,5 +32,8 @@ data = pd.concat([cross_sectional, longitudinal])
 #svm_predicter = SVM_Predict()
 #svm_predicter.predict(data)
 
-ward_predicter = WHC_Prediction()
-ward_predicter.predict(data)
+#ward_predicter = WHC_Prediction()
+#ward_predicter.predict(data)
+
+nn_predicter = NN_Predict()
+nn_predicter.predict(data)

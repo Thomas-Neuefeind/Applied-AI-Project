@@ -1,4 +1,4 @@
-### SVM prediction
+### SVM prediction -- most of this code is taken from Project 3 in COSC 523 with Dr. Williams
 from re import M
 import numpy as np
 from numpy.core.numeric import cross
